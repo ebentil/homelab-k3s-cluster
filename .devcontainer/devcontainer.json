@@ -1,0 +1,29 @@
+{
+	"name": "homelab-k3s-cluster",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"features": {
+	    "ghcr.io/guiyomh/features/vim": {}
+	},
+    "mounts": [
+        "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind,consistency=cached"
+    ],
+    "postCreateCommand": "mise trust && mise install"
+    
+	// "remoteEnv": {
+		//"MY_VARIABLE": "Samuel"
+	//}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "sudo apt-get update && sudo apt-get install -y vim"
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
